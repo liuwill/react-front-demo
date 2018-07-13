@@ -43,7 +43,7 @@ export default class Home extends Component {
 
   render() {
     const uploaderProps = {
-      action: 'http://upload.qiniup.com/',
+      action: '//upload.qiniup.com/',
       method: 'POST',
       accept: 'file',
       multiple: false,
@@ -71,11 +71,11 @@ export default class Home extends Component {
             avatarUrl="https://avatars3.githubusercontent.com/u/2748731?s=100&v=4"
             carColor="白"
             carType="架构师"
-            card="liuwill@live.com"
+            card="liuwill"
             cntOrder={174}
             company="github-code"
             isMaster={false}
-            name="刘伟"
+            name="liuwill@live.com"
             phone="15800000000"
           />
         </div>

@@ -24,6 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "pile-ui": "^1.0.1",
+    "rc-upload": "^2.5.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1"

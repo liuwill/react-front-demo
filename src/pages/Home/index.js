@@ -68,7 +68,7 @@ export default class Home extends Component {
       <div className="app">
         <div className="page-header">
           <Driver
-            avatarUrl="https://avatars3.githubusercontent.com/u/2748731?s=40&v=4"
+            avatarUrl="https://avatars3.githubusercontent.com/u/2748731?s=100&v=4"
             carColor="白"
             carType="架构师"
             card="liuwill@live.com"

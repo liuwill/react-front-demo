@@ -37,10 +37,14 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
-          'css-loader',
-          // 'postcss-loader',
-        ],
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false,
+            }
+          }
+        ]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)\w*/,

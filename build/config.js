@@ -1,4 +1,4 @@
-var path = require('path')
+// var path = require('path')
 var packageConfig = require('../package.json')
 
 const version = packageConfig['version']

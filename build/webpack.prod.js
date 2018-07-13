@@ -72,9 +72,13 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
-          'css-loader',
-          // 'postcss-loader',
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: false
+            }
+          }
         ],
       },
       {
@@ -110,7 +114,7 @@ module.exports = {
   },
   plugins: [
     new webpack.BannerPlugin({
-      banner: `Build: @${currentTime} [file]`
+      banner: `Build: liuwill<liuwill@live.com>@${currentTime} [file]`
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true

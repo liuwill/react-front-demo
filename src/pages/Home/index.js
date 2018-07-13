@@ -14,6 +14,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props)
 
+    this.host = ''
     this.uploadData = {
       token: '',
       key: '',
@@ -33,11 +34,28 @@ export default class Home extends Component {
     this.uploadData.key = e.target.value
   }
 
+  handleInputHost = (e) => {
+    this.host = e.target.value
+  }
+
   handleBeforeUpload = (file) => {
     console.log('beforeUpload', file.name)
     if (!this.uploadData.token || !this.uploadData.key) {
       alert('请先填写token和文件名')
       return false
+    }
+  }
+
+  handleUploadSuccess = (file, data) => {
+    alert('文件上传成功，具体信息见控制台')
+    console.log('onSuccess', file, data)
+
+    if (this.host) {
+      if (this.host.indexOf('http') < 0 || this.host.indexOf('//') < 0) {
+        this.host = `http://${this.host}`
+      }
+
+      window.open(`${this.host}/${this.uploadData.key}`, '_blank')
     }
   }
 
@@ -52,10 +70,7 @@ export default class Home extends Component {
         console.log('onStart', file.name)
         // this.refs.inner.abort(file)
       },
-      onSuccess(file, data) {
-        alert('文件上传成功，具体信息见控制台')
-        console.log('onSuccess', file, data)
-      },
+      onSuccess: this.handleUploadSuccess,
       onProgress(step, file) {
         console.log('onProgress', Math.round(step.percent), file.name)
       },
@@ -80,6 +95,9 @@ export default class Home extends Component {
           />
         </div>
         <div className="page-form">
+          <div className="page-form-item">
+            <Inputs placeholder="bucke主机名(填写可预览)" onChange={this.handleInputHost} mainValue='' />
+          </div>
           <div className="page-form-item">
             <Inputs placeholder="输入上传Token" onChange={this.handleInputToken} mainValue='' />
           </div>
